@@ -593,4 +593,5 @@ For a deeper engineering report, read:
 
 [GHOSTCALL_TECHNICAL_REPORT.md](GHOSTCALL_TECHNICAL_REPORT.md)
 #   G h o s t _ c a l l  
+ #   G h o s t _ c a l l  
  
