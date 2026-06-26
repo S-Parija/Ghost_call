@@ -8,12 +8,6 @@ Current live deployment:
 https://ghost-call.fastapicloud.dev
 ```
 
-Latest verified FastAPI Cloud deployment:
-
-```text
-b3195f39-1458-4227-81ee-e66b64f1f39d
-```
-
 ## 1. Project Goal
 
 GhostCall is a privacy-first browser voice calling application.
