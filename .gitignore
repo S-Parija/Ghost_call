@@ -1,0 +1,12 @@
+.venv/
+.agents/
+.fastapicloud/
+__pycache__/
+*.py[cod]
+.env
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.DS_Store
+private_key.pem
+public_key.pem

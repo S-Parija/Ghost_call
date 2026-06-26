@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10141b" />
+    <title>GhostCall</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="phone" aria-label="GhostCall phone">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">GhostCall</p>
+            <h1>Secure calls</h1>
+          </div>
+          <div id="connectionStatus" class="status is-connecting">
+            <span></span>
+            <strong>Connecting</strong>
+          </div>
+        </header>
+
+        <section class="quick-actions">
+          <button id="installButton" class="install-button" type="button">Install app</button>
+          <button id="notificationButton" class="install-button secondary" type="button">Enable ring alerts</button>
+        </section>
+
+        <section class="identity glass">
+          <span>Your Ghost ID</span>
+          <div class="id-row">
+            <strong id="ghostId">loading</strong>
+            <button id="copyIdButton" class="icon-button" type="button" aria-label="Copy Ghost ID" title="Copy Ghost ID">
+              Copy
+            </button>
+          </div>
+        </section>
+
+        <section id="dialerPanel" class="dialer glass">
+          <label for="targetId">Call a Ghost ID</label>
+          <div class="dial-row">
+            <input id="targetId" type="text" placeholder="@silent-eagle-4821" autocomplete="off" spellcheck="false" />
+            <button id="callButton" class="primary-button" type="button">Call</button>
+          </div>
+          <div id="recentContacts" class="recent">
+            <div class="recent-head">
+              <span>Quick dial</span>
+              <button id="clearRecentButton" class="text-button" type="button">Clear local list</button>
+            </div>
+            <div id="recentList" class="recent-list"></div>
+            <p id="recentEmpty" class="recent-empty">Recent Ghost IDs saved only on this device will appear here.</p>
+          </div>
+        </section>
+
+        <section id="incomingPanel" class="incoming glass hidden" aria-live="polite">
+          <div class="incoming-orb" aria-hidden="true"></div>
+          <p>Incoming call</p>
+          <strong id="incomingFrom">@ghost</strong>
+          <div id="incomingCountdown" class="incoming-countdown">30</div>
+          <div class="action-row">
+            <button id="acceptButton" class="primary-button" type="button">Accept</button>
+            <button id="declineButton" class="danger-button" type="button">Decline</button>
+          </div>
+        </section>
+
+        <section id="callPanel" class="call glass hidden" aria-live="polite">
+          <div class="avatar" aria-hidden="true">
+            <span></span>
+          </div>
+          <p id="callLabel">Calling</p>
+          <strong id="peerId">@ghost</strong>
+          <div id="timer" class="timer">00:00</div>
+          <div class="controls">
+            <button id="muteButton" class="control-button" type="button">Mute</button>
+            <button id="recordButton" class="control-button" type="button">Record</button>
+            <button id="endButton" class="end-button" type="button">End</button>
+          </div>
+        </section>
+
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <audio id="remoteAudio" autoplay playsinline></audio>
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>

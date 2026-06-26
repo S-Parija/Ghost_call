@@ -1,0 +1,19 @@
+{
+  "name": "GhostCall",
+  "short_name": "GhostCall",
+  "description": "Privacy-first browser voice calling with anonymous Ghost IDs.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#10141b",
+  "theme_color": "#10141b",
+  "icons": [
+    {
+      "src": "/static/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
