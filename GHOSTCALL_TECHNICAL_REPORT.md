@@ -43,7 +43,7 @@ The main privacy rules are:
 - PWA: Web App Manifest and Service Worker.
 - Push notifications: Web Push API with VAPID keys and `pywebpush`.
 - Dependency manager: `uv`.
-- Deployment: FastAPI Cloud, with Render blueprint also included.
+- Deployment: FastAPI Cloud.
 
 ## 3. High-Level Architecture
 
@@ -126,7 +126,6 @@ main.py
 pyproject.toml
 uv.lock
 .env.example
-render.yaml
 README.md
 GHOSTCALL_TECHNICAL_REPORT.md
 ```
@@ -249,7 +248,6 @@ async def health() -> dict[str, str]:
 Used for:
 
 - FastAPI Cloud health checks.
-- Render health checks.
 - Manual deployment verification.
 
 ### `manifest`
@@ -986,7 +984,7 @@ async function boot() {
 
 Purpose:
 
-- Render quick dial list.
+- Display quick dial list.
 - Show notification button state.
 - Connect WebSocket immediately.
 - Start PWA/push setup in background.
@@ -1481,21 +1479,23 @@ Important variables:
 - `VAPID_PUBLIC_KEY`: browser application server key.
 - `VAPID_SUBJECT`: Web Push subject claim.
 
-## 16. Render Config: `render.yaml`
+## 16. FastAPI Cloud Deployment
 
-Render deployment blueprint.
+GhostCall is deployed with FastAPI Cloud.
 
-Build:
-
-```text
-pip install uv && uv sync --frozen
-```
-
-Start:
+Live URL:
 
 ```text
-uv run fastapi run main.py --host 0.0.0.0 --port $PORT
+https://ghost-call.fastapicloud.dev/
 ```
+
+Deploy command:
+
+```text
+uv run fastapi deploy
+```
+
+The root `main.py` exports the FastAPI application so the FastAPI CLI can auto-detect the app.
 
 ## 17. Problems Found and Fixes Applied
 
@@ -1659,14 +1659,13 @@ PWA:
 Deployment:
 
 - FastAPI Cloud deployment.
-- Render blueprint.
 - VAPID environment variables.
 
 ## 19. What Was Removed or Replaced
 
 Removed/replaced behavior:
 
-- Render-only deployment focus was replaced with FastAPI Cloud plus optional Render.
+- Deployment documentation was focused on FastAPI Cloud.
 - Call flow was changed from accept-then-offer to offer-first.
 - Cache-first service worker behavior was replaced with network-first.
 - Hidden install/recent controls were replaced with visible controls.
@@ -1832,4 +1831,3 @@ For production reliability:
    - Peer connection state.
 4. Add server-side structured logs for call lifecycle events.
 5. Add browser automated tests with Playwright.
-
